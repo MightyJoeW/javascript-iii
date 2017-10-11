@@ -38,8 +38,16 @@ var employees = [{
 
 // Code here
 
-
-
+let employeeUpdater = () => {
+  employees.forEach((key, val) => {
+    if (key.firstName === 'Theo') {
+      delete employees[val];
+    } else if (key.firstName === 'Lorie') {
+      key.department = 'HR';
+    }
+  })
+  return employees;
+}
 
 
 
@@ -56,13 +64,15 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 // Code here
 
-
-
-
-
-
-
-
+const removeDuplicates = (arr) => {
+  let newArray = [];
+  for(let i = 0; i < arr.length; i++){
+    if(!newArray.includes(arr[i])){
+      newArray.push(arr[i])
+    }
+  }
+  return newArray;
+}
 
 
 // === PROBLEM 3 ==========
