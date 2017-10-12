@@ -46,28 +46,54 @@ const totalPopulation = (obj) => {
 // ========================
 
 
-// Write a function called ingredients that will take in an object. This object will have 3 properties named carb, fat, and protein. The property values will be strings. Use object destructuring to save the property values to new variables. Push these new variables to an array and return the array. 
+// Write a function called ingredients that will take in an object. This object will have 3 properties named carb, 
+// fat, and protein. The property values will be strings. Use object destructuring to save the property values to 
+// new variables. Push these new variables to an array and return the array. 
 
   // CODE HERE
+  const ingredients = (obj) => {
+    let newArr = [];
+    let {carb, fat, protein} = obj;
+    newArr.push(carb, fat, protein);
+  return newArr;
+}
 
 
 // ========================
 
 
-// Now we will use object destructuring as the function's parameter instead of destructuring the object inside of the function declaration. See the example below:
+// Now we will use object destructuring as the function's parameter instead of destructuring the object inside of 
+//the function declaration. See the example below:
 
 // function example( {one, two, three} ) {
 //   return one + two + three
 // }
 
-// Write a function called largeNumbers that will take a destructured object as it's parameter. The object properties will be named first, second, and third and their values will be numbers. Find the smallest number of the three and return that number.
+// Write a function called largeNumbers that will take a destructured object as it's parameter. 
+//The object properties will be named first, second, and third and their values will be numbers. 
+//Find the smallest number of the three and return that number.
 
   // CODE HERE
+const largeNumbers = (obj) => {
+  let {first, second, third} = obj;
+  arr = [];
+  arr.push(first, second, third);
+  arr.sort((a,b) => a-b);
+  return arr[0]
+}
 
 
 // ========================
 
 
-// Write a function called numberGroups that will take a destructured object as it's parameter. The object properties will be named a, b, and c and their values will be arrays of numbers. Find the longest array and return that array. 
+// Write a function called numberGroups that will take a destructured object as it's parameter. 
+//The object properties will be named a, b, and c and their values will be arrays of numbers. 
+//Find the longest array and return that array. 
 
   // CODE HERE
+const numberGroups = (obj) => {
+  let {a, b, c} = obj;
+  if (a.length > b.length && a.length > c.length) return a;
+  else if (b.length > a.length && b.length > c.length) return b;
+  else if (c.length > a.length && c.length > b.length) return c;
+} 
