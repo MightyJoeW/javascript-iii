@@ -39,7 +39,7 @@ let postTaxPrices = prices.map(function(val) {
 
 const populations = [8175133, 3792621, 2695598, 2100263]
 
-let totalPopulation //  = populations.reduce(/* Provide Your Callback Here */)
+let totalPopulation = populations.reduce((accumulator, val, i, arr) => accumulator += val)
 
 // Now we're going to ramp up these a little bit.  Instead of just arrays of numbers
 // We are going to have array of objects that we want to use map filter and reduce with
@@ -57,7 +57,12 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 {"monster":"Sandmush","CP":262},{"monster":"Sandmush","CP":25},{"monster":"Charaflier","CP":215},
 {"monster":"Ponylopse","CP":125},{"monster":"Bulbabunny","CP":178}]
 
-let myStrongest // Your code here
+let myStrongest = monstersInYourPocket.filter((monster) => {
+    if (monster.CP > 200) {
+        return monster;
+    }
+})
+
 
 // Below we have an array of orders.  but they all have different tax rates.
 // We want to make a new array of total prices.
@@ -67,7 +72,9 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 {"price":72,"tax":0.14},{"price":51,"tax":0.09},{"price":89,"tax":0.15},
 {"price":48,"tax":0.13}]
 
-let ordersTotal // Your code here
+let ordersTotal = orders.map(val => {
+  return val.price * (1 + val.tax)
+}) // Your code here
 
 // Below we have an array of purchases
 // We want to create a total for the purcahses, but only want to total Bob's
@@ -81,4 +88,6 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 {"owner":"Barry","price":30},{"owner":"Barry","price":129},{"owner":"Barry","price":38},
 {"owner":"Bob","price":133},{"owner":"Barry","price":109},{"owner":"Bob","price":115}]
 
-let bobsTotal // Your code here
+// Your code here
+let bobsTotal = purchases.filter(val => val.owner === "Bob")
+.reduce((a,b) =>  a + b.price, 0)
